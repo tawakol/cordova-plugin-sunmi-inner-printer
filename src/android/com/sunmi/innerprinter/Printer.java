@@ -20,6 +20,7 @@ import android.content.ServiceConnection;
 
 import android.graphics.Bitmap;
 
+import android.os.Build;
 import android.os.IBinder;
 
 import android.util.Base64;
