@@ -85,7 +85,11 @@ public class Printer extends CordovaPlugin {
     mFilter.addAction(OVER_HEATING_ACITON);
     mFilter.addAction(FIRMWARE_UPDATING_ACITON);
 
-    applicationContext.registerReceiver(printerStatusReceiver, mFilter, Context.RECEIVER_NOT_EXPORTED);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+      applicationContext.registerReceiver(printerStatusReceiver, mFilter, Context.RECEIVER_NOT_EXPORTED);
+    } else {
+      applicationContext.registerReceiver(printerStatusReceiver, mFilter);
+    }
   }
 
   @Override
